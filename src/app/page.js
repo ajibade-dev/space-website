@@ -1,6 +1,7 @@
 "use client"
 import Image from "next/image";
 import { useState } from "react";
+import { motion} from "framer-motion";
 
 export default function Home() {
 
@@ -44,7 +45,7 @@ export default function Home() {
         />
       </div>  
       {/* the div to hold them all */}
-      <div className="absolute lg:top-2/3 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white lg:w-full md:w-3/4 sm:w-full lg:mx-10 mt-16 lg:mt-0 max-w-[1440px]">
+      <div className="absolute lg:top-2/3 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white lg:w-full w-3/4 lg:px-10 mt-16 lg:mt-0 max-w-[1440px]">
       <div className="flex flex-col lg:flex-row items-center justify-center">
         <div className="flex-col flex lg:items-start items-center justify-start w-full lg:w-1/2 gap-6">
           <h1 className="text-2xl font-extralight font-barlow tracking-wider">SO, YOU WANT TO TRAVEL TO</h1>

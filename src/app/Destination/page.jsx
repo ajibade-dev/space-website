@@ -1,5 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
-
 "use client";
 
 import { useEffect, useState } from 'react';
@@ -53,17 +51,16 @@ export default function DestinationPage() {
       </div>
 
       <div className="relative w-full max-w-6xl px-6 py-16 pt-40 lg:pt-48 flex flex-col ">
-      <div className="lg:text-left mb-10">
+        <div className="lg:text-left mb-10">
           <h1 className="text-xl text-white font-barlow tracking-wider"><span className='text-slate-700 font-extrabold mr-6'>01</span>PICK YOUR DESTINATION</h1>
         </div>
         <div className="flex flex-col lg:flex-row items-center lg:items-start justify-center w-full pt-20">
           <div className="flex-shrink-0 lg:w-1/2 flex flex-col justify-center lg:justify-end">
-          
             {destinations.length > 0 && (
               <div className="relative w-full max-w-md lg:max-w-none">
                 <img
-                  src={destinations[activeTab].images.png.replace('./', '/')}
-                  alt={destinations[activeTab].name}
+                  src={destinations[activeTab]?.images.png.replace('./', '/')}
+                  alt={destinations[activeTab]?.name}
                   className=""
                 />
               </div>
@@ -81,17 +78,26 @@ export default function DestinationPage() {
                 </button>
               ))}
             </div>
-            <div className="text-center lg:text-left text-white">
-              <h2 className="text-8xl font-bellefair py-6 uppercase">{destinations[activeTab].name}</h2>
-              <p className="mt-4 font-barlow font-extralight w-full lg:w-3/4 text-justify leading-8">{destinations[activeTab].description}</p>
-              <div className="flex flex-row mt-16 items-center">
-                <div className='flex flex-col gap-4'><p><strong>Distance:</strong></p>
-                <p> {destinations[activeTab].distance}</p></div>
-                <div className='flex flex-col gap-4'>
-                  <p className=""><strong>Travel Time:</strong></p> 
-                  <p> {destinations[activeTab].travel}</p></div>
+            {destinations.length > 0 && (
+              <div className="text-center lg:text-left text-white">
+                <h2 className="text-8xl font-bellefair py-6 uppercase">{destinations[activeTab]?.name}</h2>
+                <div className='flex items-center justify-center lg:justify-start'>
+                <p className="mt-4 font-barlow font-extralight w-full md:w-3/4 lg:text-justify leading-8">{destinations[activeTab]?.description}</p>
+                </div>
+                <div className='flex items-center justify-center lg:justify-start'>
+                <div className="flex flex-col md:flex-row mt-10 lg:mt-16 gap-7 md:gap-0 items-center md:justify-between md:w-3/4 w-full uppercase justify-center">
+                  <div className='flex flex-col gap-4'>
+                    <p className='font-barlow tracking-wider font-extralight'>Avg. distance:</p>
+                    <p className='font-bellefair text-4xl'>{destinations[activeTab]?.distance}</p>
+                  </div>
+                  <div className='flex flex-col gap-4'>
+                    <p className='font-barlow tracking-wider font-extralight'>Est Travel Time:</p>
+                    <p className='font-bellefair text-4xl'>{destinations[activeTab]?.travel}</p>
+                  </div>
+                </div>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>

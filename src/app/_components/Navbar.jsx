@@ -52,7 +52,7 @@ const Navbar = () => {
           <img src="/normal/icon-hamburger.svg" alt="hamburger" className="w-8 h-8" />
         </div>
         {isOpen && (
-          <nav className="md:hidden flex flex-col bg-white text-white fixed top-0 right-0 h-full w-[70%] pt-10 z-20 transition ease-in-out duration-300 items-center bg-opacity-70 backdrop-blur-xl shadow-md font-barlow">
+          <nav className="md:hidden flex flex-col bg-black text-white fixed top-0 right-0 h-full w-[70%] pt-10 z-20 transition ease-in-out duration-300 items-center bg-opacity-10 backdrop-blur-md shadow-md font-barlow">
             <div className="flex ml-auto p-6">
               <button onClick={toggleMenu}>
                 <Image src="/normal/icon-close.svg" alt="Menu" width={30} height={30} />

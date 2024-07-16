@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export default function DestinationPage() {
   const [destinations, setDestinations] = useState([]);
@@ -51,23 +52,52 @@ export default function DestinationPage() {
       </div>
 
       <div className="relative w-full max-w-6xl px-6 py-16 pt-40 lg:pt-48 flex flex-col ">
-        <div className="lg:text-left mb-10">
+        <motion.div
+        
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once:true, amount:0.5}}
+        transition={{ duration:0.3 }}
+        variants={{
+          hidden: { opacity: 0, x:-50 },
+          visible: { opacity: 1, x: 0 }
+        }}className="lg:text-left mb-10">
           <h1 className="text-xl text-white font-barlow tracking-wider"><span className='text-slate-700 font-extrabold mr-6'>01</span>PICK YOUR DESTINATION</h1>
-        </div>
+        </motion.div>
         <div className="flex flex-col lg:flex-row items-center lg:items-start justify-center w-full pt-20">
-          <div className="flex-shrink-0 lg:w-1/2 flex flex-col justify-center lg:justify-end">
+          {/* for the image that shows on the side */}
+          <motion.div
+           initial="hidden"
+           whileInView="visible"
+           viewport={{ once:true, amount:0.5}}
+           transition={{ delay:0.2, duration:0.5 }}
+           variants={{
+             hidden: { opacity: 0, x:-50 },
+             visible: { opacity: 1, x: 0 }
+           }}
+          className="flex-shrink-0 lg:w-1/2 flex flex-col justify-center lg:justify-end">
             {destinations.length > 0 && (
               <div className="relative w-full max-w-md lg:max-w-none">
                 <img
                   src={destinations[activeTab]?.images.png.replace('./', '/')}
                   alt={destinations[activeTab]?.name}
-                  className=""
+                  className="planet images"
                 />
               </div>
             )}
-          </div>
+          </motion.div>
           <div className="mt-10 lg:mt-0 lg:w-1/2 flex flex-col items-center lg:items-start">
-            <div className="flex space-x-4 lg:space-x-6 mb-6 justify-center lg:justify-start font-barlow">
+          {/* for the sideshows (buttonlike) */}
+            <motion.div
+             initial="hidden"
+             whileInView="visible"
+             viewport={{ once:true, amount:0.5}}
+             transition={{ duration:0.3 }}
+             variants={{
+               hidden: { opacity: 0, x:50 },
+               visible: { opacity: 1, x: 0 }
+             }}
+            className="flex space-x-4 lg:space-x-6 mb-6 justify-center lg:justify-start font-barlow">
               {destinations.map((destination, index) => (
                 <button
                   key={destination.name}
@@ -77,23 +107,61 @@ export default function DestinationPage() {
                   {destination.name}
                 </button>
               ))}
-            </div>
+            </motion.div>
             {destinations.length > 0 && (
               <div className="text-center lg:text-left text-white">
-                <h2 className="text-8xl font-bellefair py-6 uppercase">{destinations[activeTab]?.name}</h2>
+                {/* for the name on top */}
+                <motion.h2
+                 initial="hidden"
+                 whileInView="visible"
+                 viewport={{ once:true, amount:0.5}}
+                 transition={{delay:0.2, duration:0.3 }}
+                 variants={{
+                   hidden: { opacity: 0, x:50 },
+                   visible: { opacity: 1, x: 0 }
+                 }}
+                className="text-8xl font-bellefair py-6 uppercase">{destinations[activeTab]?.name}</motion.h2>
                 <div className='flex items-center justify-center lg:justify-start'>
-                <p className="mt-4 font-barlow font-extralight w-full md:w-3/4 lg:text-justify leading-8">{destinations[activeTab]?.description}</p>
+                  {/* for the description */}
+                <motion.p
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once:true, amount:0.5}}
+                transition={{delay:0.3, duration:0.3 }}
+                variants={{
+                  hidden: { opacity: 0, x:50 },
+                  visible: { opacity: 1, x: 0 }
+                }}
+                className="mt-4 font-barlow font-extralight w-full md:w-3/4 lg:text-justify leading-8">{destinations[activeTab]?.description}</motion.p>
                 </div>
                 <div className='flex items-center justify-center lg:justify-start'>
                 <div className="flex flex-col md:flex-row mt-10 lg:mt-16 gap-7 md:gap-0 items-center md:justify-between md:w-3/4 w-full uppercase justify-center">
-                  <div className='flex flex-col gap-4'>
+                  <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once:true, amount:0.5}}
+                  transition={{delay:0.4, duration:0.3 }}
+                  variants={{
+                    hidden: { opacity: 0, x:50 },
+                    visible: { opacity: 1, x: 0 }
+                  }}
+                  className='flex flex-col gap-4'>
                     <p className='font-barlow tracking-wider font-extralight'>Avg. distance:</p>
                     <p className='font-bellefair text-4xl'>{destinations[activeTab]?.distance}</p>
-                  </div>
-                  <div className='flex flex-col gap-4'>
+                  </motion.div>
+                  <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once:true, amount:0.5}}
+                  transition={{delay:0.5, duration:0.3 }}
+                  variants={{
+                    hidden: { opacity: 0, x:50 },
+                    visible: { opacity: 1, x: 0 }
+                  }}
+                  className='flex flex-col gap-4'>
                     <p className='font-barlow tracking-wider font-extralight'>Est Travel Time:</p>
                     <p className='font-bellefair text-4xl'>{destinations[activeTab]?.travel}</p>
-                  </div>
+                  </motion.div>
                 </div>
                 </div>
               </div>

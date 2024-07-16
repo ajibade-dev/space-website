@@ -4,6 +4,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { motion} from "framer-motion";
+import Link from "next/link";
 
 export default function Home() {
 
@@ -93,9 +94,11 @@ export default function Home() {
              visible: { opacity: 1, x: 0 }
            }}
           className="flex-col flex items-center justify-center lg:w-1/2 w-full py-6 lg:py-0" >
-          <button className=" px-12 py-24 bg-white rounded-full text-3xl font-bellefair text-very-dark-navy">
+            <Link href="/Destination">
+                      <button className=" px-12 py-24 bg-white rounded-full text-3xl font-bellefair text-very-dark-navy">
             EXPLORE
           </button>
+          </Link>
           </motion.div>
           </div>
         </div>

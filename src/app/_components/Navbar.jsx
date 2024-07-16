@@ -11,6 +11,10 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
   return (
     <nav className="absolute top-0 left-0 w-full lg:pt-10 lg:pl-10 md:pl-6 flex flex-row justify-between items-center z-10">
       <div className="md:flex hidden">
@@ -60,22 +64,22 @@ const Navbar = () => {
             </div>
             <ul className="flex flex-col gap-10 mr-auto mt-20 w-full pl-6">
               <li className="hover:border-r-2 hover:border-r-white">
-                <Link href="/">
+                <Link href="/" onClick={closeMenu}>
                   <p className="font-extralight tracking-widest"><span className="font-bold">00 </span>HOME</p>
                 </Link>
               </li>
               <li className="hover:border-r-2 hover:border-r-white">
-                <Link href="/Destination">
+                <Link href="/Destination" onClick={closeMenu}>
                   <p className="font-extralight tracking-widest"><span className="font-bold">01 </span>DESTINATION</p>
                 </Link>
               </li>
               <li className="hover:border-r-2 hover:border-r-white">
-                <Link href="/Crew">
+                <Link href="/Crew" onClick={closeMenu}>
                   <p className="font-extralight tracking-widest"><span className="font-bold">02 </span>CREW</p>
                 </Link>
               </li>
               <li className="hover:border-r-2 hover:border-r-white">
-                <Link href="/Technology">
+                <Link href="/Technology" onClick={closeMenu}>
                   <p className="font-extralight tracking-widest"><span className="font-bold">03 </span>TECHNOLOGY</p>
                 </Link>
               </li>
